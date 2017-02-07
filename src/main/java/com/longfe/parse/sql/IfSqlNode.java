@@ -1,0 +1,1 @@
+package com.longfe.parse.sql;import java.util.List;class IfSqlNode extends SqlNode {	String test;	List<SqlNode> sqlNodes;	public String getTest() {		return test;	}	public void setTest(String test) {		this.test = test;	}	public List<SqlNode> getSqlNodes() {		return sqlNodes;	}	public void setSqlNodes(List<SqlNode> sqlNodes) {		this.sqlNodes = sqlNodes;	}}

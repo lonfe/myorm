@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><update id="update" parameterType="User">    UPDATE users    <if test="name != null and name != ''">        name = #{name}    </if>    where id = ${id}</update>
