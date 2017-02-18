@@ -3,24 +3,24 @@ package com.longfe.test;
 import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.apache.ibatis.reflection.SystemMetaObject.DEFAULT_OBJECT_FACTORY;
 import static org.apache.ibatis.reflection.SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY;
 
 public class TestMetaObject {
 
     public static void main(String[] args) {
-        Title[] titles = new Title[2];
         Title title = new Title();
         title.setName("lonfe");
-        titles[1] = title;
-        Content content = new Content();
-        content.setTitle(titles);
-        Example example = new Example();
-        example.setContent(content);
 
-        MetaObject javaBeanMeta = MetaObject.forObject(example,
+        Map<String, Title> map = new HashMap<String, Title>();
+        map.put("title", title);
+
+        MetaObject mapMeta = MetaObject.forObject(map,
                 DEFAULT_OBJECT_FACTORY, DEFAULT_OBJECT_WRAPPER_FACTORY, new DefaultReflectorFactory());
-        System.out.println(javaBeanMeta.getValue("content.title[0].name"));
+        System.out.println(mapMeta.getValue("title.name"));
     }
 
 }
